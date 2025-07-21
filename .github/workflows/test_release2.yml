@@ -8,13 +8,12 @@ on:
   workflow_dispatch:
     inputs:
       make_release:
-        description: 'Do you want to create a release?'
+        description: 'Bạn có muốn tạo bản release không?'
         required: true
         type: boolean
         default: true
       kernelsu_variant:
-        # description: "选择 KernelSU | 注意:选中MKSU时为标准版"
-        description: "选择 KernelSU"
+        description: "Phiên bản KernelSU"
         required: true
         type: choice
         options:
@@ -22,9 +21,9 @@ on:
           - Next
           - MKSU
           - SukiSU
-        default: SukiSU
+        default: Next
       kernelsu_branch:
-        description: "选择 ksu 分支"
+        description: "Nhánh KSU"
         required: true
         type: choice
         options:
@@ -32,26 +31,22 @@ on:
           - Dev(开发)
           - Other(其他/指定)
         default: Dev(开发)
-      # kernelsu_branch_other:
-      #   description: "如果选择了 “其他”，请指定您的自定义分支"
-      #   required: false
-      #   type: string  # This input is required if 'Other' is chosen
       version:
-        description: '自定义版本名(如5.10.198后面的字符/留空则使用默认版本号)'
+        description: 'Đặt tên cho kernel của bạn (Ví dụ: 5.15.148-KittyKernel / để trống sẽ build theo mặc định'
         required: false
         type: string
       use_zram:
-        description: '是否开启增加更多ZRAM算法?'
+        description: 'Tick để thêm các thuật toán ZRAM'
         required: true
         type: boolean
         default: true
       use_kpm:
-        description: '是否开启KPM功能?'
+        description: 'Tick để thêm tính năng KPM'
         required: true
         type: boolean
         default: true
       get_manager:
-        description: '是否同时获取最新KSU管理器?'
+        description: 'Tick để nhận phiên bản KSU Manager'
         required: true
         type: boolean
         default: false
