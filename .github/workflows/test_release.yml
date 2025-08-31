@@ -235,7 +235,7 @@ jobs:
       - get_manager
     if: always()
     env:
-      REPO_OWNER: ShirkNeko
+      REPO_OWNER: trnthanhhuy
       REPO_NAME: GKI_KernelSU_SUSFS
       GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       RELEASE_NAME: "GKI Kernel: ${{ inputs.kernelsu_variant == 'Next' && 'KernelSU-' || '' }} ${{ inputs.kernelsu_variant }}"
@@ -253,15 +253,7 @@ jobs:
         -> BBR Support
         ${{ inputs.use_kpm && '-> KPM Support' || '' }}
         -> **LZ4KD&ONEPLUS_LZ4K** ${{ inputs.use_zram && 'supported' || 'not supported' }}
-        
-        <details>
-        <summary>Notes:</summary>
-        - -> In SUS SU Mode 2, it will show as disabled or incompatible, the reason is that non-kprobe hooks were used (when compiling the kernel), and non-kprobe hooks are no longer needed!
-        - -> In the latest version of susfs, flashing AK3 compressed package with Kernel Flasher will brick your device, try [Horizon Kernel Flasher]\(https://github.com/libxzr/HorizonKernelFlasher)!
-        </details>
-        
-        Modules:
-        -> https://github.com/sidex15/ksu_module_susfs
+              
     steps:
       - name: Conditional Release Check
         id: release_check
