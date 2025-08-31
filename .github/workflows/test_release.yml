@@ -1,4 +1,4 @@
-name: Test Release
+name: Build Kernel and Release
 
 permissions:
   contents: write
